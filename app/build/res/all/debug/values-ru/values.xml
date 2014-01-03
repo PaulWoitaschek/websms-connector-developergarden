@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/home/paul/AndroidStudioProjects/dgard.con/app/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values-ru/values.xml -->
+    <eat-comment />
+
+    <string name="abc_action_bar_home_description" msgid="4600421777120114993">"Перейти на главный экран"</string>
+    <string name="abc_action_bar_up_description" msgid="1594238315039666878">"Перейти вверх"</string>
+    <string name="abc_action_menu_overflow_description" msgid="3588849162933574182">"Другие параметры"</string>
+    <string name="abc_action_mode_done" msgid="4076576682505996667">"Готово"</string>
+    <string name="abc_activity_chooser_view_see_all" msgid="7468859129482906941">"Показать все"</string>
+    <string name="abc_activitychooserview_choose_application" msgid="2031811694353399454">"Выбрать приложение"</string>
+    <string name="abc_searchview_description_clear" msgid="3691816814315814921">"Удалить запрос"</string>
+    <string name="abc_searchview_description_query" msgid="2550479030709304392">"Поисковый запрос"</string>
+    <string name="abc_searchview_description_search" msgid="8264924765203268293">"Поиск"</string>
+    <string name="abc_searchview_description_submit" msgid="8928215447528550784">"Отправить запрос"</string>
+    <string name="abc_searchview_description_voice" msgid="893419373245838918">"Голосовой поиск"</string>
+    <string name="abc_shareactionprovider_share_with" msgid="3421042268587513524">"Открыть доступ"</string>
+    <string name="abc_shareactionprovider_share_with_application" msgid="7165123711973476752">"Открыть доступ пользователю %s"</string>
+    <!-- From: file:/home/paul/AndroidStudioProjects/dgard.con/app/build/exploded-bundles/DeUb0rAndroidWebsmsConnectorCommonWebSMSAPI10.aar/res/values-ru/values.xml -->
+    <eat-comment />
+
+    <string name="create_account_" formatted="false">Создать аккаунт</string>
+    <string name="custom_sender_" formatted="false">Задать отправителя</string>
+    <string name="error" formatted="false">ОШИБКА</string>
+    <string name="error_balance" formatted="false" orig="Insufficant balance!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Недостаточный баланс!</string>
+    <string name="error_connection" formatted="false" orig="Connection terminated/timed out. If your connection is working, it\&apos;s most likely a downtime of the target service. Check the app\&apos;s website issues and twitter for status." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Подключение прекращено/истекло время ожидания. Если Ваше подключение работает, то, скорее всего, не работает целевая служба. Посмотрите список проблем на веб-сайте приложения и Twitter.</string>
+    <string name="error_http" formatted="false">ОШИБКА: HTTP</string>
+    <string name="error_http_header_missing" formatted="false" orig="Header: Content-Length is missing!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Заголовок: неверное содержание-длина!</string>
+    <string name="error_input" formatted="false">Ошибка ввода!</string>
+    <string name="error_mail" formatted="false" orig="Wrong mail address or password given!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Неверный e-mail адрес или пароль!</string>
+    <string name="error_pw" formatted="false" orig="Wrong username or password given!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Неверное имя пользователя или пароль!</string>
+    <string name="error_recipient" formatted="false" orig="Invalid recipient!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Неверный получатель!</string>
+    <string name="error_sender" formatted="false" orig="Wrong sender! Set it in international form like +4917012345678." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Неверный номер отправителя! Введите в международном формате, напр. +79261234567.</string>
+    <string name="error_sender_unregistered" formatted="false">Данные отправителя должны быть зарегистрированы у Вашего провайдера.</string>
+    <string name="error_sendlater_quater" formatted="false" orig="Only full 15minutes are supported by your connector!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Ваш коннектор поддерживает только полные 15 минут!</string>
+    <string name="error_server" formatted="false" orig="FAILURE: Serverresponse:" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">ОШИБКА: Ответ сервера:</string>
+    <string name="error_service" formatted="false">Сервис не доступен! Попробуйте позже.</string>
+    <string name="error_text" formatted="false" orig="Invalid message!" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Неверное сообщение!</string>
+    <string name="error_wrongcaptcha" formatted="false" orig="Captcha was wrong. Please try again." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Неверная капча. Попробуйте снова.</string>
+    <string name="ignore_free_" formatted="false" orig="Hide &quot;free&quot; SubConnector" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Скрыть \"бесплатные\" подчиненные коннекторы</string>
+    <string name="ignore_free_hint" formatted="false" orig="Hide &quot;free&quot; SubConnector from selection." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Скрыть в выбранном \"бесплатные\" подчиненные коннекторы.</string>
+    <string name="ignore_nosender_" formatted="false" orig="Hide &quot;without sender&quot; SubConnector" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Скрыть подчиненные коннекторы \"без отправителя\"</string>
+    <string name="ignore_nosender_hint" formatted="false" orig="Hide &quot;without sender&quot; SubConnector from selection." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Скрыть в выбранном подчиненные коннекторы \"без отправителя\".</string>
+    <string name="ignore_ssl_error_" formatted="false" orig="Ignore SSL handshake errors" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Игнорировать ошибки подтверждения SSL</string>
+    <string name="ignore_ssl_error_hint" formatted="false" orig="Ignore errors during SSL handshake. Some phones do not have the needed certificates installed. Using this leads to insecurity." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Игнорировать ошибки во время подтверждения SSL. Некоторые телефоны не имеют необходимых установленных сертификатов. Это приводит к незащищенности.</string>
+    <string name="ignore_withsender_" formatted="false" orig="Hide &quot;with sender&quot; SubConnector" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Скрыть подчиненные коннекторы \"с отправителем\"</string>
+    <string name="ignore_withsender_hint" formatted="false" orig="Hide &quot;with sender&quot; SubConnector from selection." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Скрыть в выбранном подчиненные коннекторы \"с отправителем\".</string>
+    <string name="info_text" formatted="false" orig="This is a WebSMS Connector.\nThe only way to use it, is lauching it with WebSMS." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Это WebSMS Коннектор.\nЕдинственный способ использовать его, это совместный запуск с WebSMS.</string>
+    <string name="no_network" formatted="false" orig="No data network available. Check your network settings." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Сеть недоступна. Проверьте настройки сети.</string>
+    <string name="password_" formatted="false">Пароль</string>
+    <string name="send_logs_" formatted="false" orig="Send logs" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Отправить журналы</string>
+    <string name="send_logs_hint" formatted="false" orig="Send your device\&apos;s logs to the developer.\nDo this only if you was asked to do so." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Отправить журналы устройства разработчику.\nОтправляйте только в том случае, если Вас об этом попросят.</string>
+    <string name="sender_hint" formatted="false">Номер телефона, напр. +79261234567</string>
+    <string name="sendlog_install" formatted="false" orig="Install the free SendLog application to collect the device log and send it to the developer." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Установить бесплатное приложение SendLog для получения журнала устройства и отправки его разработчику.</string>
+    <string name="sendlog_install_" formatted="false">Установить SendLog</string>
+    <string name="sendlog_run" formatted="false" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">SendLog получит журнал устройства и отправит его разработчику.\nУ Вас будет возможность просмотреть и изменить отправляемые данные.</string>
+    <string name="sendlog_run_" formatted="false">Запустить SendLog</string>
+    <string name="stat_notify_sending" formatted="false">Отправка:</string>
+    <string name="stat_notify_sms_pending" formatted="false" orig="WebSMS: sending">WebSMS: Отправка</string>
+    <string name="update_message" formatted="false" orig="The ownership of this Connector has changed.\nPlease click here, to get the new App installed." username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Изменился собственник этого Коннектора.\nПожалуйста, нажмите здесь для установки нового приложения.</string>
+    <string name="update_title" formatted="false" orig="Connector update available" username="Dmitriy Rublev &lt;kaktebyavirubit@gmail.com>">Доступно обновление Коннектора</string>
+    <string name="use_derfault_sender_" formatted="false">Использовать отправителя по умолчанию</string>
+    <string name="use_derfault_sender_hint" formatted="false">Использовать данные отправителя по умолчанию изнастроек WebSMS.</string>
+    <string name="username_" formatted="false">Имя пользователя</string>
+
+</resources>

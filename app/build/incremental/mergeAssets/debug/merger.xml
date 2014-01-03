@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="DeUb0rAndroidWebsmsConnectorCommonWebSMSAPI10.aar" >
+        <source path="/home/paul/AndroidStudioProjects/dgard.con/app/build/exploded-bundles/DeUb0rAndroidWebsmsConnectorCommonWebSMSAPI10.aar/assets" />
+    </dataSet>
+    <dataSet config="ComAndroidSupportAppcompatV71900.aar" >
+        <source path="/home/paul/AndroidStudioProjects/dgard.con/app/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/home/paul/AndroidStudioProjects/dgard.con/app/src/main/assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/home/paul/AndroidStudioProjects/dgard.con/app/src/debug/assets" />
+    </dataSet>
+
+</merger>

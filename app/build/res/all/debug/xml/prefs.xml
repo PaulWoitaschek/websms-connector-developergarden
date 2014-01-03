@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/connector_dgarden_preferences">
+
+    <CheckBoxPreference android:key="enable_dgarden"
+        android:title="@string/enable_dgarden" />
+
+    <EditTextPreference android:key="client_id"
+        android:title="@string/client_id" android:dialogTitle="@string/client_id"
+        android:summary="@string/client_id_hint" android:dependency="enable_dgarden" />
+
+    <EditTextPreference android:key="token"
+        android:title="@string/password" android:dialogTitle="@string/password"
+        android:summary="@string/password_dgarden_hint" android:dependency="enable_dgarden" android:inputType="textPassword"/>
+
+    <CheckBoxPreference android:key="use_default_sender"
+        android:defaultValue="true" android:title="@string/use_default_sender"
+        android:dependency="enable_dgarden" />
+
+    <EditTextPreference android:key="custom_sender"
+        android:inputType="phone" android:title="@string/custom_sender"
+        android:dialogTitle="@string/custom_sender" android:summary="@string/custom_sender_hint"
+        android:dependency="use_default_sender" />
+
+</PreferenceScreen><!-- From: file:/home/paul/AndroidStudioProjects/dgard.con/app/src/main/res/xml/prefs.xml -->

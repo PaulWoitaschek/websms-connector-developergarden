@@ -1,0 +1,41 @@
+<!-- From: file:/home/paul/AndroidStudioProjects/dgard.con/app/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="de.ph1b.dgard">
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- WAKE_LOCK needed to make sure, sms are send even if user sends device to sleep. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <!--
+                This Activity is brought by the WebSMS Connector Plugin API. It shows
+                a simple information about this connector when launching it via
+                "open" button from android market.
+        -->
+        <activity android:icon="@drawable/icon" android:label="@string/app_name" android:name="de.ub0r.android.websms.connector.common.InfoActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.INFO"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Service doing all the IO. -->
+        <service android:exported="false" android:name="de.ub0r.android.websms.connector.common.ConnectorService"/>
+
+        <activity android:name="de.ph1b.dgard.Preferences">
+            <intent-filter>
+                <action android:name="de.ph1b.dgard.PREFS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:exported="true" android:name="de.ph1b.dgard.DevCon">
+            <intent-filter>
+                <action android:name="de.ph1b.dgard.RUN_UPDATE"/>
+                <action android:name="de.ph1b.dgard.RUN_SEND"/>
+                <action android:name="de.ph1b.dgard.CAPTCHA_SOLVED"/>
+                <action android:name="de.ub0r.android.websms.connector.UPDATE"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

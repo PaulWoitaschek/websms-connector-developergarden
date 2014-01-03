@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/home/flx/dev/android/websms-api/WebSMSAPI/src/main/res/values-pt/strings.xml -->
+    <eat-comment />
+
+    <string name="create_account_" formatted="false" orig="Create account" username="Sérgio Marques &lt;smarquespt@gmail.com>">Criar conta</string>
+    <string name="custom_sender_" formatted="false" orig="Custom sender" username="Sérgio Marques &lt;smarquespt@gmail.com>">Remetente personalizado</string>
+    <string name="error" formatted="false" orig="ERROR" username="Sérgio Marques &lt;smarquespt@gmail.com>">Erro</string>
+    <string name="error_balance" formatted="false" orig="Insufficant balance!" username="Sérgio Marques &lt;smarquespt@gmail.com>">Saldo insuficiente!</string>
+    <string name="error_connection" formatted="false" orig="Connection terminated/timed out. If your connection is working, it\&apos;s most likely a downtime of the target service. Check the app\&apos;s website issues and twitter for status." username="Sérgio Marques &lt;smarquespt@gmail.com>">A ligação foi fechada ou expirou. Se a ligação estiver a funcionar, é provável que exista um problema com o serviço. Saiba mais informações no twitter ou no sítio web da aplicação.</string>
+    <string name="error_http" formatted="false" orig="FAILURE: HTTP" username="Sérgio Marques &lt;smarquespt@gmail.com>">Falha: HTTP</string>
+    <string name="error_http_header_missing" formatted="false" orig="Header: Content-Length is missing!" username="Sérgio Marques &lt;smarquespt@gmail.com>">Cabeçalho: Content-Length inexistente!</string>
+    <string name="error_input" formatted="false" orig="Error in user input!" username="Sérgio Marques &lt;smarquespt@gmail.com>">Erro nos dados introduzidos!</string>
+    <string name="error_mail" formatted="false" orig="Wrong mail address or password given!" username="Sérgio Marques &lt;smarquespt@gmail.com>">Endereço eletrónico ou senha inválido(a)!</string>
+    <string name="error_pw" formatted="false" orig="Wrong username or password given!" username="Sérgio Marques &lt;smarquespt@gmail.com>">Nome de utilizador ou senha inválido(a)!</string>
+    <string name="error_recipient" formatted="false" orig="Invalid recipient!" username="Sérgio Marques &lt;smarquespt@gmail.com>">Destinatário inválido!</string>
+    <string name="error_sender" formatted="false" orig="Wrong sender! Set it in international form like +4917012345678." username="Sérgio Marques &lt;smarquespt@gmail.com>">Remetente inválido! Defina um prefixo internacional válido. (Ex.:+351123456789)</string>
+    <string name="error_sender_unregistered" formatted="false" orig="Sender must be registered and confirmed your provider." username="Sérgio Marques &lt;smarquespt@gmail.com>">O remetente deve estar registado e confirmado pelo serviço.</string>
+    <string name="error_sendlater_quater" formatted="false" orig="Only full 15minutes are supported by your connector!" username="Sérgio Marques &lt;smarquespt@gmail.com>">Só pode utilizar este conector durante 15 minutos!</string>
+    <string name="error_server" formatted="false" orig="FAILURE: Serverresponse:" username="Sérgio Marques &lt;smarquespt@gmail.com>">Falha: Resposta do servidor:</string>
+    <string name="error_service" formatted="false" orig="Webservice is down! This is most likely not a problem of the connector. Please try again later. Check the app\&apos;s website\&apos;s issues and twitter for status." username="Sérgio Marques &lt;smarquespt@gmail.com>">O serviço web está desligado! Este erro não deve estar relacionado com o conector. Tente mais tarde. Saiba mais informações no twitter ou no sítio web da aplicação.</string>
+    <string name="error_text" formatted="false" orig="Invalid message!" username="Sérgio Marques &lt;smarquespt@gmail.com>">Mensagem inválida!</string>
+    <string name="error_wrongcaptcha" formatted="false" orig="Captcha was wrong. Please try again." username="Sérgio Marques &lt;smarquespt@gmail.com>">Captcha inválido. Tente mais tarde.</string>
+    <string name="ignore_free_" formatted="false" orig="Hide &quot;free&quot; SubConnector" username="Sérgio Marques &lt;smarquespt@gmail.com>">Ocultar subconector \"gratuito\"</string>
+    <string name="ignore_free_hint" formatted="false" orig="Hide &quot;free&quot; SubConnector from selection." username="Sérgio Marques &lt;smarquespt@gmail.com>">Ocultar subconector \"gratuito\" da seleção.</string>
+    <string name="ignore_nosender_" formatted="false" orig="Hide &quot;without sender&quot; SubConnector" username="Sérgio Marques &lt;smarquespt@gmail.com>">Ocultar subconector \"sem remetente\"</string>
+    <string name="ignore_nosender_hint" formatted="false" orig="Hide &quot;without sender&quot; SubConnector from selection." username="Sérgio Marques &lt;smarquespt@gmail.com>">Ocultar subconector \"sem remetente\" da seleção.</string>
+    <string name="ignore_ssl_error_" formatted="false" orig="Ignore SSL handshake errors" username="Sérgio Marques &lt;smarquespt@gmail.com>">Ignorar erros SSL</string>
+    <string name="ignore_ssl_error_hint" formatted="false" orig="Ignore errors during SSL handshake. Some phones do not have the needed certificates installed. Using this leads to insecurity." username="Sérgio Marques &lt;smarquespt@gmail.com>">Ignorar erros SSL. Alguns dispositivos não possuem os certificados necesssários instalados. Esta opção comporta riscos de segurança.</string>
+    <string name="ignore_withsender_" formatted="false" orig="Hide &quot;with sender&quot; SubConnector" username="Sérgio Marques &lt;smarquespt@gmail.com>">Ocultar subconector \"com remetente\"</string>
+    <string name="ignore_withsender_hint" formatted="false" orig="Hide &quot;with sender&quot; SubConnector from selection." username="Sérgio Marques &lt;smarquespt@gmail.com>">Ocultar subconector \"com remetente\" da seleção.</string>
+    <string name="info_text" formatted="false" orig="This is a WebSMS Connector.\nThe only way to use it, is lauching it with WebSMS." username="Sérgio Marques &lt;smarquespt@gmail.com>">Este é um conector WebSMS.\nA única forma de o utilizar é com o WebSMS.</string>
+    <string name="no_network" formatted="false" orig="No data network available. Check your network settings." username="Sérgio Marques &lt;smarquespt@gmail.com>">Sem rede de dados disponível. Verifique as definições de rede.</string>
+    <string name="password_" formatted="false" orig="Password" username="Sérgio Marques &lt;smarquespt@gmail.com>">Senha</string>
+    <string name="send_logs_" formatted="false" orig="Send logs" username="Sérgio Marques &lt;smarquespt@gmail.com>">Enviar registos</string>
+    <string name="send_logs_hint" formatted="false" orig="Send your device\&apos;s logs to the developer.\nDo this only if you was asked to do so." username="Sérgio Marques &lt;smarquespt@gmail.com>">Enviar registos do dispositivo ao programador.\nNão o faça a menos que seja solicitado.</string>
+    <string name="sender_hint" formatted="false" orig="Int. phonenumber e.g. +4917912345678" username="Sérgio Marques &lt;smarquespt@gmail.com>">Prefixo internacional - +351123456789</string>
+    <string name="sendlog_install" formatted="false" orig="Install the free SendLog application to collect the device log and send it to the developer." username="Sérgio Marques &lt;smarquespt@gmail.com>">Instale a aplicação SendLog para recolher e enviar os registos do dispositivo ao programador.</string>
+    <string name="sendlog_install_" formatted="false" orig="Install SendLog" username="Sérgio Marques &lt;smarquespt@gmail.com>">Instalar SendLog</string>
+    <string name="sendlog_run" formatted="false" orig="SendLog will collect the device log and send it to the developer.\nYou will have an opportunity to review and modify the data being sent." username="Sérgio Marques &lt;smarquespt@gmail.com>">O SendLog irá recolher e enviar os registos do dispositivo ao programador.\nPode rever e alterar os dados enviados.</string>
+    <string name="sendlog_run_" formatted="false" orig="Run SendLog" username="Sérgio Marques &lt;smarquespt@gmail.com>">Executar SendLog</string>
+    <string name="stat_notify_sending" formatted="false" orig="Sending:" username="Sérgio Marques &lt;smarquespt@gmail.com>">Envio:</string>
+    <string name="stat_notify_sms_pending" formatted="false" orig="WebSMS: sending" username="Sérgio Marques &lt;smarquespt@gmail.com>">WebSMS: envio...</string>
+    <string name="update_message" formatted="false" orig="The ownership of this Connector has changed.\nPlease click here, to get the new App installed." username="Sérgio Marques &lt;smarquespt@gmail.com>">A titularidade deste conector foi alterada.\nClique aqui para obter a nova aplicação.</string>
+    <string name="update_title" formatted="false" orig="Connector update available" username="Sérgio Marques &lt;smarquespt@gmail.com>">Atualização de conector disponível</string>
+    <string name="use_derfault_sender_" formatted="false" orig="Use default sender" username="Sérgio Marques &lt;smarquespt@gmail.com>">Utilizar remetente padrão</string>
+    <string name="use_derfault_sender_hint" formatted="false" orig="Use default sender provided by WebSMS." username="Sérgio Marques &lt;smarquespt@gmail.com>">Utilizar remetente disponibilizado pelo WebSMS.</string>
+    <string name="username_" formatted="false" orig="Username" username="Sérgio Marques &lt;smarquespt@gmail.com>">Nome de utilizador</string>
+
+</resources>
