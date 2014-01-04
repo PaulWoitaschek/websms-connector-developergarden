@@ -14,22 +14,12 @@
         android:title="@string/password" android:dialogTitle="@string/password"
         android:summary="@string/password_dgarden_hint" android:dependency="enable_dgarden" android:inputType="textPassword"/>
 
-<<<<<<< HEAD
     <CheckBoxPreference android:key="use_custom_sender"
-        android:defaultValue="true" android:title="@string/custom_sender_use"
-=======
-    <CheckBoxPreference android:key="use_default_sender"
-        android:defaultValue="true" android:title="@string/use_default_sender"
->>>>>>> e6d771b88891e509ccf2993681cbfe936057af67
-        android:dependency="enable_dgarden" />
+        android:defaultValue="true" android:title="@string/custom_sender_use" />
 
     <EditTextPreference android:key="custom_sender"
         android:inputType="phone" android:title="@string/custom_sender"
         android:dialogTitle="@string/custom_sender" android:summary="@string/custom_sender_hint"
-<<<<<<< HEAD
         android:dependency="use_custom_sender" />
-=======
-        android:dependency="use_default_sender" />
->>>>>>> e6d771b88891e509ccf2993681cbfe936057af67
 
 </PreferenceScreen>

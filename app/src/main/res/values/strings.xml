@@ -10,11 +10,8 @@
     <string name="ignore_invalid_cert">Ignore invalid SSL certificates</string>
     <string name="ignore_invalid_cert_hint">Temporary fix if sending fails. SMS are not sent securely.</string>
     <string name="error_invalid_cert">The Server did not properly identify itself (invalid SSL certificate). Please update this connector. If the problem persists, try turning on \'Ignore invalid SSL certificates\' in settings.</string>
-<<<<<<< HEAD
 
-=======
     <string name="use_default_sender">Use default sender.</string>
->>>>>>> e6d771b88891e509ccf2993681cbfe936057af67
     <string name="error_custom_sender">Custom sender mustn\'t be longer than 12 characters</string>
 
     <string name="client_id">Client ID</string>
@@ -24,9 +21,7 @@
 
     <string name="custom_sender">Custom number</string>
     <string name="custom_sender_hint">Your registered number.</string>
-<<<<<<< HEAD
     <string name="custom_sender_use">Use a custom sender</string>
-=======
->>>>>>> e6d771b88891e509ccf2993681cbfe936057af67
+
 
 </resources>
