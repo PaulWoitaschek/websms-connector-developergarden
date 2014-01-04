@@ -17,6 +17,8 @@ import de.ub0r.android.websms.connector.common.Log;
 import com.telekom.api.common.ServiceEnvironment;
 import com.telekom.api.common.auth.TelekomOAuth2Auth;
 import com.telekom.api.common.model.SmsResponse;
+import com.telekom.api.quota.QuotaClient;
+import com.telekom.api.quota.model.GetQuotaInformationResponse;
 import com.telekom.api.sendsms.OutboundSMSType;
 import com.telekom.api.sendsms.SendSmsClient;
 import com.telekom.api.sendsms.model.SendSmsRequest;
@@ -49,6 +51,7 @@ public class DevCon extends Connector {
         ConnectorSpec c = new ConnectorSpec(name);
         c.setAuthor(context.getString(R.string.connector_dgarden_author));
         c.setBalance(null);
+        c.setLimitLength(129);
         c.setCapabilities(ConnectorSpec.CAPABILITIES_UPDATE
                 | ConnectorSpec.CAPABILITIES_SEND
                 | ConnectorSpec.CAPABILITIES_PREFS);
@@ -74,7 +77,6 @@ public class DevCon extends Connector {
         } else {
             connectorSpec.setStatus(ConnectorSpec.STATUS_INACTIVE);
         }
-
 
         return connectorSpec;
     }
@@ -126,11 +128,19 @@ public class DevCon extends Connector {
     }
 
     @Override
+    protected final void doUpdate(final Context context, final Intent intent)
+            throws IOException {
+        login(context);
+        QuotaClient client = new QuotaClient(auth, ServiceEnvironment.SANDBOX);
+        GetQuotaInformationResponse quotaResponse = client.getQuotaInformation("GlobalSmsSandbox");
+        getSpec(context).setBalance(String.valueOf(quotaResponse.getMaxQuota()-quotaResponse.getQuotaLevel()));
+    }
+
+    @Override
     protected final void doSend(final Context context, final Intent intent)
             throws IOException {
         this.login(context);
         this.sendMessage(context, intent);
     }
-
 
 }
