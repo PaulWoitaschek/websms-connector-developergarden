@@ -13,6 +13,8 @@ public final class Preferences extends PreferenceActivity {
 
     static final String PREFS_CUSTOMNUMBER = "custom_sender";
 
+    static final String PREFS_CUSTOM_ENABLED = "use_custom_sender";
+
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

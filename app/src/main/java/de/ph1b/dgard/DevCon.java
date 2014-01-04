@@ -20,7 +20,6 @@ import java.io.IOException;
 import de.ub0r.android.websms.connector.common.Connector;
 import de.ub0r.android.websms.connector.common.ConnectorCommand;
 import de.ub0r.android.websms.connector.common.ConnectorSpec;
-import de.ub0r.android.websms.connector.common.ConnectorSpec.SubConnectorSpec;
 import de.ub0r.android.websms.connector.common.Log;
 import de.ub0r.android.websms.connector.common.Utils;
 import de.ub0r.android.websms.connector.common.WebSMSException;
@@ -29,8 +28,6 @@ import de.ub0r.android.websms.connector.common.WebSMSException;
 public class DevCon extends Connector {
 
     private static final String TAG = "Developergarden";
-    static String subAccountId = null;
-    static String scope = "DC0QX4UK";
 
     private static void outputErrorAndAbort(SmsResponse response) {
         if (response.getRequestError().getServiceException() != null) {
@@ -56,11 +53,6 @@ public class DevCon extends Connector {
         c.setCapabilities(ConnectorSpec.CAPABILITIES_UPDATE
                 | ConnectorSpec.CAPABILITIES_SEND
                 | ConnectorSpec.CAPABILITIES_PREFS);
-        c.addSubConnector(TAG, c.getName(),
-                SubConnectorSpec.FEATURE_CUSTOMSENDER
-                        | SubConnectorSpec.FEATURE_SENDLATER
-                        | SubConnectorSpec.FEATURE_SENDLATER_QUARTERS
-                        | SubConnectorSpec.FEATURE_FLASHSMS);
         return c;
     }
 
@@ -89,7 +81,7 @@ public class DevCon extends Connector {
         String token = p.getString(Preferences.PREFS_PASSWORD, "");
         String clientId = p.getString(Preferences.PREFS_CLIENTID, "");
 
-        TelekomOAuth2Auth auth = new TelekomOAuth2Auth(clientId, token, scope);
+        TelekomOAuth2Auth auth = new TelekomOAuth2Auth(clientId, token, "DC0QX4UK");
         auth.requestAccessToken();
         if (!auth.hasValidToken())
             throw new WebSMSException("No valid token!");
@@ -116,8 +108,12 @@ public class DevCon extends Connector {
         request.setAddress(reciFormat);
         request.setMessage(text);
         request.setType(OutboundSMSType.TEXT);
-        request.setSenderAddress("tel:" + senderNumber);
-        request.setAccount(subAccountId);
+
+        if (p.getBoolean(Preferences.PREFS_CUSTOM_ENABLED, true)){
+            request.setSenderAddress("tel:" + senderNumber);
+        } else {
+            request.setSenderAddress("0191011");
+        }
 
         try {
             Log.i(TAG, "Sending SMS...");
@@ -156,6 +152,5 @@ public class DevCon extends Connector {
 
         this.sendMessage(context, intent, auth);
     }
-
 
 }
