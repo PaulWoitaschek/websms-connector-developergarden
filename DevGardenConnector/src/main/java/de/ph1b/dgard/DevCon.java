@@ -24,6 +24,9 @@ import de.ub0r.android.websms.connector.common.ConnectorSpec.SubConnectorSpec;
 import de.ub0r.android.websms.connector.common.Log;
 import de.ub0r.android.websms.connector.common.Utils;
 import de.ub0r.android.websms.connector.common.WebSMSException;
+import de.ub0r.android.websms.connector.common.BasicSMSLengthCalculator;
+
+
 
 
 public class DevCon extends Connector {
@@ -50,6 +53,7 @@ public class DevCon extends Connector {
         ConnectorSpec c = new ConnectorSpec(name);
         c.setAuthor(context.getString(R.string.connector_dgarden_author));
         c.setBalance(null);
+        c.setSMSLengthCalculator(new BasicSMSLengthCalculator(new int[] {129}));
         c.setCapabilities(ConnectorSpec.CAPABILITIES_UPDATE
                         | ConnectorSpec.CAPABILITIES_SEND
                         | ConnectorSpec.CAPABILITIES_PREFS);
@@ -116,7 +120,8 @@ public class DevCon extends Connector {
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         SendSmsClient client = new SendSmsClient(auth, ServiceEnvironment.SANDBOX);
         SendSmsRequest request = new SendSmsRequest();
-
+        Log.e(TAG, getText(intent));
+        Log.e(TAG, String.valueOf(getText(intent).length()));
         request.setAddress(getNumbers(intent));
         request.setMessage(getText(intent));
         request.setType(OutboundSMSType.TEXT);
@@ -158,6 +163,8 @@ public class DevCon extends Connector {
         if (getText(intent).length() > 129) {
             throw new WebSMSException("Message too long. Only 129 characters allowed.");
         }
+
+
        /*
         temporary disabled because of buggy update
         doUpdate(context, intent);
