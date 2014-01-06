@@ -50,10 +50,9 @@ public class DevCon extends Connector {
         ConnectorSpec c = new ConnectorSpec(name);
         c.setAuthor(context.getString(R.string.connector_dgarden_author));
         c.setBalance(null);
-        c.setCapabilities(/*ConnectorSpec.
-                CAPABILITIES_UPDATE
-//deactivated because telco error?                |*/ ConnectorSpec.CAPABILITIES_SEND
-                | ConnectorSpec.CAPABILITIES_PREFS);
+        c.setCapabilities(ConnectorSpec.CAPABILITIES_UPDATE
+                        | ConnectorSpec.CAPABILITIES_SEND
+                        | ConnectorSpec.CAPABILITIES_PREFS);
         c.addSubConnector("0", "", SubConnectorSpec.FEATURE_NONE);
         return c;
     }
