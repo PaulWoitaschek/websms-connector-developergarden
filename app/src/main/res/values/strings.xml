@@ -19,5 +19,7 @@
     <string name="custom_sender_hint">Your registered number.</string>
     <string name="custom_sender_use">Use a custom sender</string>
 
+    <string name="message_too_long">Your message is too long. Only 129 characters allowed!</string>
+
 
 </resources>
