@@ -108,7 +108,7 @@ public class DevCon extends Connector {
 
     private String getSenderNumber(final Context context) {
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
-        return "tel:" + p.getString(Preferences.PREFS_CUSTOMNUMBER, "");
+        return p.getString(Preferences.PREFS_CUSTOMNUMBER, "");
     }
 
     // sending actual message using the the auth provied by login()
@@ -121,7 +121,10 @@ public class DevCon extends Connector {
         request.setType(OutboundSMSType.TEXT);
 
         if (p.getBoolean(Preferences.PREFS_CUSTOM_ENABLED, false)) {
-            request.setSenderAddress(getSenderNumber(context));
+            if (getSenderNumber(context).length() < 1 || getSenderNumber(context).length() > 12) {
+                throw new WebSMSException(context.getString(R.string.error_custom_sender));
+            }
+            request.setSenderAddress("tel:" + getSenderNumber(context));
         } else {
             request.setSenderAddress("0191011");
         }
