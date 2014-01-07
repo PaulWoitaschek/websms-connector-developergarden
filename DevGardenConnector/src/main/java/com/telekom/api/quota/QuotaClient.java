@@ -17,8 +17,6 @@
 
 package com.telekom.api.quota;
 
-import java.io.IOException;
-
 import com.telekom.api.common.HttpMethod;
 import com.telekom.api.common.ServiceEnvironment;
 import com.telekom.api.common.TelekomClient;
@@ -30,6 +28,8 @@ import com.telekom.api.quota.model.GetChargedAmountRequest;
 import com.telekom.api.quota.model.GetChargedAmountResponse;
 import com.telekom.api.quota.model.GetQuotaInformationResponse;
 import com.telekom.api.quota.model.SetQuotaRequest;
+
+import java.io.IOException;
 
 /**
  * Wrapper for Telekom Admin / Quota service
@@ -74,7 +74,7 @@ public class QuotaClient extends TelekomClient {
 
 		String uri = getServiceBaseUrl() + "/quotainfo/" + urlEncode(service);
 
-		return createAuthenticatedRequest(uri, HttpMethod.GET).execute(
+		return createAuthenticatedRequest(uri, HttpMethod.GET).executePatched(
 				GetQuotaInformationResponse.class);
 	}
 

@@ -17,11 +17,17 @@
 
 package com.telekom.api.common.webrequest;
 
+import com.telekom.api.common.HttpMethod;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.util.HashMap;
-
-import com.telekom.api.common.HttpMethod;
 
 /**
  * Web Request whose response will be deserialized to the specified
@@ -41,6 +47,26 @@ public class TelekomJsonWebRequest extends TelekomWebRequest {
 		
 		return JsonSerializer.deserialize(responseStream, valueType);
 	}
+
+    public <ResponseType> ResponseType executePatched(Class<ResponseType> valueType)
+            throws IOException {
+        HttpResponse response = null;
+        try {
+            HttpClient client = new DefaultHttpClient();
+            HttpGet request = new HttpGet();
+            request.setURI(URI.create(this.uri + uriParamBuilder.toString()));
+            request.setHeader("Accept", "application/json");
+            request.setHeader("User-Agent", "We all love Telekom");
+            request.setHeader("Authorization", this.authHeader);
+            response = client.execute(request);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        InputStream responseStream = response.getEntity().getContent();
+
+        return JsonSerializer.deserialize(responseStream, valueType);
+    }
 	
 	public <ResponseType> ResponseType executeCustom(Class<ResponseType> valueType, HashMap<String, String> additionalHeaders)
 			throws IOException {
