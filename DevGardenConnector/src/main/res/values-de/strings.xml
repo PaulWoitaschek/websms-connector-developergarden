@@ -1,0 +1,17 @@
+<resources>
+    <string name="connector_dgarden_preferences">Einstellungen - Developergarden</string>
+    <string name="enable_dgarden">Aktiviere Developergarden</string>
+
+    <string name="client_id">Client ID</string>
+    <string name="client_id_hint">Geben Sie hier ihre Client-ID ein.</string>
+    <string name="password">Security Token</string>
+    <string name="password_dgarden_hint">Viele Stellen.</string>
+
+    <string name="custom_sender_use">Benutze einen eigenen Absender</string>
+    <string name="custom_sender_use_hint">Falls dies nicht gewählt ist, wird der Standardabsender 0191011 verwendet.</string>
+    <string name="custom_sender">Eigener Absender</string>
+    <string name="custom_sender_hint">Ihre registrierte Nummer (+4917...).</string>
+
+    <string name="message_too_long">Ihre Nachricht ist zu lang. Es sind nur 129 Zeichen erlaubt.</string>
+    <string name="error_custom_sender">Tragen Sie eine gültige Absendernummer ein.</string>
+</resources>

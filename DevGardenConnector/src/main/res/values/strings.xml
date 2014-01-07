@@ -2,24 +2,20 @@
     <string name="app_name">WebSMS Connector: Developergarden</string>
     <string name="connector_dgarden_author">Paul Woitaschek</string>
     <string name="connector_dgarden_name">Developergarden</string>
+
     <string name="connector_dgarden_preferences">Preferences - Developergarden</string>
     <string name="enable_dgarden">Enable Developergarden</string>
-
-
-    <string name="no_free_sms">No free SMS left.</string>
-    <string name="use_default_sender">Use default sender.</string>
-    <string name="error_custom_sender">Custom sender mustn\'t be longer than 12 characters</string>
 
     <string name="client_id">Client ID</string>
     <string name="client_id_hint">Add your Client ID here.</string>
     <string name="password">Security Token</string>
     <string name="password_dgarden_hint">Many digits.</string>
 
-    <string name="custom_sender">Custom number</string>
-    <string name="custom_sender_hint">Your registered number.</string>
     <string name="custom_sender_use">Use a custom sender</string>
+    <string name="custom_sender_use_hint">If unchecked, default sender will be 0191011.</string>
+    <string name="custom_sender">Custom number</string>
+    <string name="custom_sender_hint">Your registered number (+4917...).</string>
 
-    <string name="message_too_long">Your message is too long. Only 129 characters allowed!</string>
-
-
+    <string name="message_too_long">Your message is too long. Only 129 characters allowed.</string>
+    <string name="error_custom_sender">Enter a valid custom number.</string>
 </resources>
