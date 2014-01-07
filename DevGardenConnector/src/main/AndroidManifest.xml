@@ -1,25 +1,37 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.ph1b.dgard" android:versionName="1.7.5"
-    android:versionCode="1705">
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="13" />
-    <supports-screens android:smallScreens="true"
-        android:normalScreens="true" android:largeScreens="true"
-        android:anyDensity="true" />
-    <uses-feature android:name="android.hardware.touchscreen"
+    package="de.ph1b.dgard"
+    android:versionCode="1705"
+    android:versionName="1.7.5">
+
+    <uses-sdk
+        android:minSdkVersion="5"
+        android:targetSdkVersion="19" />
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
         android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- WAKE_LOCK needed to make sure, sms are send even if user sends device to sleep. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <application android:label="@string/app_name" android:icon="@drawable/icon">
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name">
         <!--
                 This Activity is brought by the WebSMS Connector Plugin API. It shows
                 a simple information about this connector when launching it via
                 "open" button from android market.
         -->
-        <activity android:name="de.ub0r.android.websms.connector.common.InfoActivity"
-            android:label="@string/app_name" android:icon="@drawable/icon"
+        <activity
+            android:name="de.ub0r.android.websms.connector.common.InfoActivity"
+            android:icon="@drawable/icon"
+            android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +40,8 @@
         </activity>
 
         <!-- Service doing all the IO. -->
-        <service android:name="de.ub0r.android.websms.connector.common.ConnectorService"
+        <service
+            android:name="de.ub0r.android.websms.connector.common.ConnectorService"
             android:exported="false" />
 
         <activity android:name="Preferences">
@@ -37,8 +50,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <receiver android:name="de.ph1b.dgard.DevCon"
-            android:enabled="true" android:exported="true">
+        <receiver
+            android:name="de.ph1b.dgard.DevCon"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="de.ph1b.dgard.RUN_UPDATE" />
                 <action android:name="de.ph1b.dgard.RUN_SEND" />
