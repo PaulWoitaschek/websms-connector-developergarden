@@ -8,3 +8,4 @@ local.properties
 .idea
 DevGardenConnector/DevGardenConnector.iml
 DevelopergardenConnector.iml
+DevGardenConnector/.gitignore

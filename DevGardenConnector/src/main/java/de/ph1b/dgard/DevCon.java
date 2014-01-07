@@ -17,6 +17,7 @@ import com.telekom.api.sendsms.model.SendSmsRequest;
 
 import java.io.IOException;
 
+import de.ub0r.android.websms.connector.common.BasicSMSLengthCalculator;
 import de.ub0r.android.websms.connector.common.Connector;
 import de.ub0r.android.websms.connector.common.ConnectorCommand;
 import de.ub0r.android.websms.connector.common.ConnectorSpec;
@@ -24,9 +25,6 @@ import de.ub0r.android.websms.connector.common.ConnectorSpec.SubConnectorSpec;
 import de.ub0r.android.websms.connector.common.Log;
 import de.ub0r.android.websms.connector.common.Utils;
 import de.ub0r.android.websms.connector.common.WebSMSException;
-import de.ub0r.android.websms.connector.common.BasicSMSLengthCalculator;
-
-
 
 
 public class DevCon extends Connector {
@@ -35,12 +33,12 @@ public class DevCon extends Connector {
 
     private static void outputErrorAndAbort(SmsResponse response) {
         if (response.getRequestError().getServiceException() != null) {
-            throw new RuntimeException(String.format("error %s: %s - %s",
+            throw new WebSMSException(String.format("error %s: %s - %s",
                     response.getRequestError().getServiceException().getMessageId(),
                     response.getRequestError().getServiceException().getText().substring(0, response.getRequestError().getServiceException().getText().length() - 2),
                     response.getRequestError().getServiceException().getVariables()[0]));
         } else if (response.getRequestError().getPolicyException() != null) {
-            throw new RuntimeException(String.format("error %s: %s - %s",
+            throw new WebSMSException(String.format("error %s: %s - %s",
                     response.getRequestError().getPolicyException().getMessageId(),
                     response.getRequestError().getPolicyException().getText().substring(0, response.getRequestError().getPolicyException().getText().length() - 2),
                     response.getRequestError().getPolicyException().getVariables()[0]));
@@ -53,10 +51,11 @@ public class DevCon extends Connector {
         ConnectorSpec c = new ConnectorSpec(name);
         c.setAuthor(context.getString(R.string.connector_dgarden_author));
         c.setBalance(null);
-        c.setSMSLengthCalculator(new BasicSMSLengthCalculator(new int[] {129}));
+        c.setLimitLength(129);
+        c.setSMSLengthCalculator(new BasicSMSLengthCalculator(new int[]{129}));
         c.setCapabilities(ConnectorSpec.CAPABILITIES_UPDATE
-                        | ConnectorSpec.CAPABILITIES_SEND
-                        | ConnectorSpec.CAPABILITIES_PREFS);
+                | ConnectorSpec.CAPABILITIES_SEND
+                | ConnectorSpec.CAPABILITIES_PREFS);
         c.addSubConnector("0", "", SubConnectorSpec.FEATURE_NONE);
         return c;
     }
@@ -75,9 +74,6 @@ public class DevCon extends Connector {
         } else {
             connectorSpec.setStatus(ConnectorSpec.STATUS_INACTIVE);
         }
-// if premium sms are added here is decided how long the message is allowed to be
-       connectorSpec.setLimitLength(129);
-
         return connectorSpec;
     }
 
@@ -100,9 +96,9 @@ public class DevCon extends Connector {
         return auth;
     }
 
-    private String [] getNumbers(final Intent intent) {
+    private String[] getNumbers(final Intent intent) {
         ConnectorCommand c = new ConnectorCommand(intent);
-        String[] recipients = new String[ c.getRecipients().length];
+        String[] recipients = new String[c.getRecipients().length];
         for (int i = 0; i < recipients.length; i++) {
             recipients[i] = "tel:" + Utils.national2international(c.getDefPrefix(), Utils.getRecipientsNumber(c.getRecipients()[i]));
             Log.i(TAG, "Sending to: " + recipients[i]);
@@ -120,13 +116,11 @@ public class DevCon extends Connector {
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         SendSmsClient client = new SendSmsClient(auth, ServiceEnvironment.SANDBOX);
         SendSmsRequest request = new SendSmsRequest();
-        Log.e(TAG, getText(intent));
-        Log.e(TAG, String.valueOf(getText(intent).length()));
         request.setAddress(getNumbers(intent));
         request.setMessage(getText(intent));
         request.setType(OutboundSMSType.TEXT);
 
-        if (p.getBoolean(Preferences.PREFS_CUSTOM_ENABLED, true)){
+        if (p.getBoolean(Preferences.PREFS_CUSTOM_ENABLED, false)) {
             request.setSenderAddress(getSenderNumber(context));
         } else {
             request.setSenderAddress("0191011");
@@ -161,16 +155,8 @@ public class DevCon extends Connector {
             throws IOException {
         TelekomOAuth2Auth auth = this.login(context);
         if (getText(intent).length() > 129) {
-            throw new WebSMSException("Message too long. Only 129 characters allowed.");
+            throw new WebSMSException(context.getString(R.string.message_too_long));
         }
-
-
-       /*
-        temporary disabled because of buggy update
-        doUpdate(context, intent);
-        if (getSpec(context).getBalance().equals("0")) {
-            throw new WebSMSException(context, R.string.no_free_sms);
-        }*/
         this.sendMessage(context, intent, auth);
     }
 
