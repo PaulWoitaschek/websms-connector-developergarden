@@ -17,13 +17,6 @@
 
 package com.telekom.api.common.webrequest;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.net.ssl.HttpsURLConnection;
-
 import com.telekom.api.common.HttpMethod;
 import com.telekom.api.common.TelekomConfig;
 import com.telekom.api.common.TelekomException;
@@ -31,6 +24,13 @@ import com.telekom.api.common.webrequest.httpparamwriter.FormMultipartWriter;
 import com.telekom.api.common.webrequest.httpparamwriter.HttpBodyParamWriter;
 import com.telekom.api.common.webrequest.httpparamwriter.RequestStringWriter;
 import com.telekom.api.common.webrequest.httpparamwriter.UriParameterBuilder;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class TelekomWebRequest implements IParameterStore {
 
@@ -44,11 +44,11 @@ public class TelekomWebRequest implements IParameterStore {
 	private byte[] rawContent;
 	private String rawContentType;
 
-	private String uri;
+	protected String uri;
 	private HttpMethod method;
 	private String userAgent;
 	private String accept;
-	private String authHeader;
+	protected String authHeader;
 
 	public void setAuthHeader(String authHeader) {
 		this.authHeader = authHeader;
