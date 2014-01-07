@@ -24,28 +24,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class SubAccountBalance {
 
-	private String account;
+    private String account;
 
-	private Integer credits;
+    private Integer credits;
 
-	public SubAccountBalance(@JsonProperty(value = "account") String account,
-			@JsonProperty(value = "credits") Integer credits) {
-		this.account = account;
-		this.credits = credits;
-	}
+    public SubAccountBalance(@JsonProperty(value = "account") String account,
+                             @JsonProperty(value = "credits") Integer credits) {
+        this.account = account;
+        this.credits = credits;
+    }
 
-	/**
-	 * @return Sub account ID
-	 */
-	public String getAccount() {
-		return account;
-	}
+    /**
+     * @return Sub account ID
+     */
+    public String getAccount() {
+        return account;
+    }
 
-	/**
-	 * @return Balance of this sub account
-	 */
-	public Integer getCredits() {
-		return credits;
-	}
+    /**
+     * @return Balance of this sub account
+     */
+    public Integer getCredits() {
+        return credits;
+    }
 
 }

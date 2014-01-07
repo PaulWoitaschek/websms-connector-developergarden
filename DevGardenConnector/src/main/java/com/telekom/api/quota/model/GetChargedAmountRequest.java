@@ -27,36 +27,34 @@ import com.telekom.api.common.model.validation.Required;
  */
 public class GetChargedAmountRequest extends TelekomRequest {
 
-	private String id;
+    private String id;
 
-	private String accountId;
+    private String accountId;
 
-	@NoHttpParameter
-	@Required
-	public String getId() {
-		return id;
-	}
+    @NoHttpParameter
+    @Required
+    public String getId() {
+        return id;
+    }
 
-	/**
-	 * @param id
-	 *            Voice Call oder Conference Call Id for which costs the request
-	 *            is for.
-	 */
-	public void setId(String id) {
-		this.id = id;
-	}
+    /**
+     * @param id Voice Call oder Conference Call Id for which costs the request
+     *           is for.
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	@HttpParameter(name = "accountID")
-	public String getAccountId() {
-		return accountId;
-	}
+    @HttpParameter(name = "accountID")
+    public String getAccountId() {
+        return accountId;
+    }
 
-	/**
-	 * @param accountId
-	 *            Sub-account to query (if omitted, main account is used)
-	 */
-	public void setAccountId(String accountId) {
-		this.accountId = accountId;
-	}
+    /**
+     * @param accountId Sub-account to query (if omitted, main account is used)
+     */
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
 
 }

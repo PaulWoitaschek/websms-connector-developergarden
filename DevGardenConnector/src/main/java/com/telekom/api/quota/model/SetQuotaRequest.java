@@ -26,37 +26,35 @@ import com.telekom.api.common.model.validation.Required;
  */
 public class SetQuotaRequest extends TelekomRequest {
 
-	private String moduleId;
+    private String moduleId;
 
-	private Integer value;
+    private Integer value;
 
-	@NoHttpParameter
-	public String getModuleId() {
-		return moduleId;
-	}
+    @NoHttpParameter
+    public String getModuleId() {
+        return moduleId;
+    }
 
-	/**
-	 * @param moduleId
-	 *            Service and environment to change quota for One of
-	 *            "SmsProduction", "SmsSandbox", "VoiceButlerProduction",
-	 *            "VoiceButlerSandbox", "CCSProduction", "CCSSandbox",
-	 *            "IPLocationProduction", "IPLocationSandbox"
-	 */
-	public void setModuleId(String moduleId) {
-		this.moduleId = moduleId;
-	}
+    /**
+     * @param moduleId Service and environment to change quota for One of
+     *                 "SmsProduction", "SmsSandbox", "VoiceButlerProduction",
+     *                 "VoiceButlerSandbox", "CCSProduction", "CCSSandbox",
+     *                 "IPLocationProduction", "IPLocationSandbox"
+     */
+    public void setModuleId(String moduleId) {
+        this.moduleId = moduleId;
+    }
 
-	@Required
-	public Integer getValue() {
-		return value;
-	}
+    @Required
+    public Integer getValue() {
+        return value;
+    }
 
-	/**
-	 * @param value
-	 *            The new maximum available quota per day
-	 */
-	public void setValue(Integer value) {
-		this.value = value;
-	}
+    /**
+     * @param value The new maximum available quota per day
+     */
+    public void setValue(Integer value) {
+        this.value = value;
+    }
 
 }

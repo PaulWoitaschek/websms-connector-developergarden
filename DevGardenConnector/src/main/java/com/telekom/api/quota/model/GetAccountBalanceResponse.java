@@ -17,28 +17,28 @@
 
 package com.telekom.api.quota.model;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.telekom.api.common.model.TelekomResponse;
+
+import java.util.List;
 
 /**
  * Response that contains a list of sub accounts with balance information
  */
 public class GetAccountBalanceResponse extends TelekomResponse {
 
-	private List<SubAccountBalance> accounts;
+    private List<SubAccountBalance> accounts;
 
-	public GetAccountBalanceResponse(
-			@JsonProperty(value = "accounts") List<SubAccountBalance> accounts) {
-		this.accounts = accounts;
-	}
+    public GetAccountBalanceResponse(
+            @JsonProperty(value = "accounts") List<SubAccountBalance> accounts) {
+        this.accounts = accounts;
+    }
 
-	/**
-	 * @return List of sub accounts
-	 */
-	public List<SubAccountBalance> getAccounts() {
-		return accounts;
-	}
+    /**
+     * @return List of sub accounts
+     */
+    public List<SubAccountBalance> getAccounts() {
+        return accounts;
+    }
 
 }

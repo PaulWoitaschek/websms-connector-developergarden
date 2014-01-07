@@ -25,18 +25,18 @@ import com.telekom.api.common.model.TelekomResponse;
  */
 public class GetChargedAmountResponse extends TelekomResponse {
 
-	private Integer charge;
+    private Integer charge;
 
-	public GetChargedAmountResponse(
-			@JsonProperty(value = "charge") Integer charge) {
-		this.charge = charge;
-	}
+    public GetChargedAmountResponse(
+            @JsonProperty(value = "charge") Integer charge) {
+        this.charge = charge;
+    }
 
-	/**
-	 * @return Current cost amount of the requested id
-	 */
-	public Integer getCharge() {
-		return charge;
-	}
+    /**
+     * @return Current cost amount of the requested id
+     */
+    public Integer getCharge() {
+        return charge;
+    }
 
 }

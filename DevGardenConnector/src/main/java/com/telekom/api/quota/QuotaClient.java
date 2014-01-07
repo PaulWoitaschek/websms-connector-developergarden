@@ -36,101 +36,95 @@ import java.io.IOException;
  */
 public class QuotaClient extends TelekomClient {
 
-	/**
-	 * URL Path to Send SMS services. Can be overridden if necessary. %s is
-	 * replaced by selected environment
-	 */
-	public static String ServicePath = "/plone/odg-admin/rest/%s";
+    /**
+     * URL Path to Send SMS services. Can be overridden if necessary. %s is
+     * replaced by selected environment
+     */
+    public static String ServicePath = "/plone/odg-admin/rest/%s";
 
-	/**
-	 * Constructs a Send SMS API client with specified authentication method and
-	 * environment.
-	 * 
-	 * @param authentication
-	 *            Authentication instance
-	 * @param environment
-	 *            Environment used for this client's service invocations
-	 */
-	public QuotaClient(TelekomAuth authentication,
-			ServiceEnvironment environment) {
-		super(authentication, environment, ServicePath);
-	}
+    /**
+     * Constructs a Send SMS API client with specified authentication method and
+     * environment.
+     *
+     * @param authentication Authentication instance
+     * @param environment    Environment used for this client's service invocations
+     */
+    public QuotaClient(TelekomAuth authentication,
+                       ServiceEnvironment environment) {
+        super(authentication, environment, ServicePath);
+    }
 
-	/**
-	 * Query quota information about a service
-	 * 
-	 * @param service
-	 *            The service and environment to query. One of "SmsProduction",
-	 *            "SmsSandbox", "MmsProduction", "MmsSandbox",
-	 *            "VoiceButlerProduction", "VoiceButlerSandbox",
-	 *            "CCSProduction", "CCSSandbox", "IPLocationProduction",
-	 *            "IPLocationSandbox"
-	 * @return
-	 * @throws java.io.IOException
-	 */
-	public GetQuotaInformationResponse getQuotaInformation(String service)
-			throws IOException {
-		ensureNotNull(service);
+    /**
+     * Query quota information about a service
+     *
+     * @param service The service and environment to query. One of "SmsProduction",
+     *                "SmsSandbox", "MmsProduction", "MmsSandbox",
+     *                "VoiceButlerProduction", "VoiceButlerSandbox",
+     *                "CCSProduction", "CCSSandbox", "IPLocationProduction",
+     *                "IPLocationSandbox"
+     * @return
+     * @throws java.io.IOException
+     */
+    public GetQuotaInformationResponse getQuotaInformation(String service)
+            throws IOException {
+        ensureNotNull(service);
 
-		String uri = getServiceBaseUrl() + "/quotainfo/" + urlEncode(service);
+        String uri = getServiceBaseUrl() + "/quotainfo/" + urlEncode(service);
 
-		return createAuthenticatedRequest(uri, HttpMethod.GET).executePatched(
-				GetQuotaInformationResponse.class);
-	}
+        return createAuthenticatedRequest(uri, HttpMethod.GET).executePatched(
+                GetQuotaInformationResponse.class);
+    }
 
-	/**
-	 * Set quota for a specified service
-	 * 
-	 * @param request
-	 *            Call parameters
-	 * @return Service call response
-	 * @throws java.io.IOException
-	 */
-	public TelekomResponse setQuota(SetQuotaRequest request) throws IOException {
-		ensureRequestValid(request);
+    /**
+     * Set quota for a specified service
+     *
+     * @param request Call parameters
+     * @return Service call response
+     * @throws java.io.IOException
+     */
+    public TelekomResponse setQuota(SetQuotaRequest request) throws IOException {
+        ensureRequestValid(request);
 
-		String uri = getServiceBaseUrl() + "/userquota/"
-				+ urlEncode(request.getModuleId());
+        String uri = getServiceBaseUrl() + "/userquota/"
+                + urlEncode(request.getModuleId());
 
-		return createAuthenticatedRequest(uri, HttpMethod.PUT, request)
-				.execute(TelekomResponse.class);
-	}
+        return createAuthenticatedRequest(uri, HttpMethod.PUT, request)
+                .execute(TelekomResponse.class);
+    }
 
-	/**
-	 * Queries the current account balance
-	 * 
-	 * @param request
-	 *            Call parameters
-	 * @return Service call response
-	 * @throws java.io.IOException
-	 */
-	public GetAccountBalanceResponse getAccountBalance(
-			GetAccountBalanceRequest request) throws IOException {
-		ensureRequestValid(request);
+    /**
+     * Queries the current account balance
+     *
+     * @param request Call parameters
+     * @return Service call response
+     * @throws java.io.IOException
+     */
+    public GetAccountBalanceResponse getAccountBalance(
+            GetAccountBalanceRequest request) throws IOException {
+        ensureRequestValid(request);
 
-		String uri = getServiceBaseUrl() + "/account/balance";
+        String uri = getServiceBaseUrl() + "/account/balance";
 
-		return createAuthenticatedRequest(uri, HttpMethod.POST, request)
-				.execute(GetAccountBalanceResponse.class);
-	}
+        return createAuthenticatedRequest(uri, HttpMethod.POST, request)
+                .execute(GetAccountBalanceResponse.class);
+    }
 
-	/**
-	 * Queries the charged amount of a conference or voice call
-	 * 
-	 * @param request
-	 *            Call parameters
-	 * @return Service call response
-	 * @throws java.io.IOException
-	 */
-	public GetChargedAmountResponse getChargedAmount(
-			GetChargedAmountRequest request) throws IOException {
-		ensureRequestValid(request);
+    /**
+     * Queries the charged amount of a conference or voice call
+     *
+     * @param request Call parameters
+     * @return Service call response
+     * @throws java.io.IOException
+     */
+    public GetChargedAmountResponse getChargedAmount(
+            GetChargedAmountRequest request) throws IOException {
+        ensureRequestValid(request);
 
-		String uri = getServiceBaseUrl() + "/charge/"
-				+ urlEncode(request.getId());
+        String uri = getServiceBaseUrl() + "/charge/"
+                + urlEncode(request.getId());
 
-		return createAuthenticatedRequest(uri, HttpMethod.GET, request)
-				.execute(GetChargedAmountResponse.class);
-	}
+        return createAuthenticatedRequest(uri, HttpMethod.GET, request)
+                .execute(GetChargedAmountResponse.class);
+    }
 
 }

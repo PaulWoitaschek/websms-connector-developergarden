@@ -25,44 +25,44 @@ import com.telekom.api.common.model.TelekomResponse;
  */
 public class GetQuotaInformationResponse extends TelekomResponse {
 
-	private int maxQuota;
+    private int maxQuota;
 
-	private int maxUserQuota;
+    private int maxUserQuota;
 
-	private int quotaLevel;
+    private int quotaLevel;
 
-	public GetQuotaInformationResponse(
-			@JsonProperty(value = "maxQuota") int maxQuota,
-			@JsonProperty(value = "maxUserQuota") int maxUserQuota,
-			@JsonProperty(value = "quotaLevel") int quotaLevel) {
-		this.maxQuota = maxQuota;
-		this.maxUserQuota = maxUserQuota;
-		this.quotaLevel = quotaLevel;
-	}
+    public GetQuotaInformationResponse(
+            @JsonProperty(value = "maxQuota") int maxQuota,
+            @JsonProperty(value = "maxUserQuota") int maxUserQuota,
+            @JsonProperty(value = "quotaLevel") int quotaLevel) {
+        this.maxQuota = maxQuota;
+        this.maxUserQuota = maxUserQuota;
+        this.quotaLevel = quotaLevel;
+    }
 
-	/**
-	 * @return System-defined limit of maximum quota points that can be consumed
-	 *         per day. This system quota cannot be exceeded by the user quota
-	 *         (maxUserQuota).
-	 */
-	public int getMaxQuota() {
-		return maxQuota;
-	}
+    /**
+     * @return System-defined limit of maximum quota points that can be consumed
+     * per day. This system quota cannot be exceeded by the user quota
+     * (maxUserQuota).
+     */
+    public int getMaxQuota() {
+        return maxQuota;
+    }
 
-	/**
-	 * @return User-defined limit of maximum quota points that can be consumed
-	 *         per day. This user quota cannot exceed the system quota
-	 *         (maxQuota).
-	 */
-	public int getMaxUserQuota() {
-		return maxUserQuota;
-	}
+    /**
+     * @return User-defined limit of maximum quota points that can be consumed
+     * per day. This user quota cannot exceed the system quota
+     * (maxQuota).
+     */
+    public int getMaxUserQuota() {
+        return maxUserQuota;
+    }
 
-	/**
-	 * @return Number of quota points consumed today.
-	 */
-	public int getQuotaLevel() {
-		return quotaLevel;
-	}
+    /**
+     * @return Number of quota points consumed today.
+     */
+    public int getQuotaLevel() {
+        return quotaLevel;
+    }
 
 }

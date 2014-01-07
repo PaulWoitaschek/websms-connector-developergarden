@@ -25,19 +25,18 @@ import com.telekom.api.common.model.TelekomRequest;
  */
 public class GetAccountBalanceRequest extends TelekomRequest {
 
-	private String accountId;
+    private String accountId;
 
-	@HttpParameter(name = "accountID")
-	public String getAccountId() {
-		return accountId;
-	}
+    @HttpParameter(name = "accountID")
+    public String getAccountId() {
+        return accountId;
+    }
 
-	/**
-	 * @param accountId
-	 *            Sub-account to query (if omitted, main account is used)
-	 */
-	public void setAccountId(String accountId) {
-		this.accountId = accountId;
-	}
+    /**
+     * @param accountId Sub-account to query (if omitted, main account is used)
+     */
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
 
 }
