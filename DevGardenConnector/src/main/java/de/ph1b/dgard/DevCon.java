@@ -22,14 +22,11 @@ import de.ub0r.android.websms.connector.common.Connector;
 import de.ub0r.android.websms.connector.common.ConnectorCommand;
 import de.ub0r.android.websms.connector.common.ConnectorSpec;
 import de.ub0r.android.websms.connector.common.ConnectorSpec.SubConnectorSpec;
-import de.ub0r.android.websms.connector.common.Log;
 import de.ub0r.android.websms.connector.common.Utils;
 import de.ub0r.android.websms.connector.common.WebSMSException;
 
 
 public class DevCon extends Connector {
-
-    private static final String TAG = "Developergarden";
 
     private static void outputErrorAndAbort(SmsResponse response) {
         if (response.getRequestError().getServiceException() != null) {
@@ -52,6 +49,7 @@ public class DevCon extends Connector {
         c.setAuthor(context.getString(R.string.connector_dgarden_author));
         c.setBalance(null);
         c.setLimitLength(129);
+        c.setAdUnitId("ca-app-pub-3446180126620439/5879359143");
         c.setSMSLengthCalculator(new BasicSMSLengthCalculator(new int[]{129}));
         c.setCapabilities(ConnectorSpec.CAPABILITIES_UPDATE
                 | ConnectorSpec.CAPABILITIES_SEND
@@ -101,7 +99,6 @@ public class DevCon extends Connector {
         String[] recipients = new String[c.getRecipients().length];
         for (int i = 0; i < recipients.length; i++) {
             recipients[i] = "tel:" + Utils.national2international(c.getDefPrefix(), Utils.getRecipientsNumber(c.getRecipients()[i]));
-            Log.i(TAG, "Sending to: " + recipients[i]);
         }
         return recipients;
     }
@@ -130,12 +127,10 @@ public class DevCon extends Connector {
         }
 
         try {
-            Log.i(TAG, "Sending SMS...");
             SmsResponse response = client.sendSms(request);
             if (!response.getSuccess())
                 outputErrorAndAbort(response);
         } catch (IOException e) {
-            Log.e(TAG, "error during service call: " + e.getMessage());
         }
 
     }
@@ -148,8 +143,7 @@ public class DevCon extends Connector {
         ConnectorSpec c = getSpec(context);
         QuotaClient client = new QuotaClient(auth, ServiceEnvironment.SANDBOX);
         GetQuotaInformationResponse quotaResponse = client.getQuotaInformation("GlobalSmsSandbox");
-        Log.i(TAG, "Free SMS: " + String.valueOf(quotaResponse.getMaxQuota() - quotaResponse.getQuotaLevel()));
-        c.setBalance(String.valueOf(quotaResponse.getMaxQuota() - quotaResponse.getQuotaLevel()));
+        c.setBalance(context.getString(R.string.sms_free_left) + String.valueOf(quotaResponse.getMaxQuota() - quotaResponse.getQuotaLevel()) + context.getString(R.string.sms_free_right));
     }
 
     //initiates login, then checks for free then initiates sending

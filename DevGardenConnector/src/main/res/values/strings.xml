@@ -18,4 +18,6 @@
 
     <string name="message_too_long">Your message is too long. Only 129 characters allowed.</string>
     <string name="error_custom_sender">Enter a valid custom number.</string>
+    <string name="sms_free_left"></string>
+    <string name="sms_free_right">" free SMS."</string>
 </resources>

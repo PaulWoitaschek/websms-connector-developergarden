@@ -9,3 +9,4 @@ local.properties
 DevGardenConnector/DevGardenConnector.iml
 DevelopergardenConnector.iml
 DevGardenConnector/.gitignore
+DevGardenConnector/signing.properties

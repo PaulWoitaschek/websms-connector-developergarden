@@ -14,4 +14,6 @@
 
     <string name="message_too_long">Ihre Nachricht ist zu lang. Es sind nur 129 Zeichen erlaubt.</string>
     <string name="error_custom_sender">Tragen Sie eine gültige Absendernummer ein.</string>
+    <string name="sms_free_left">"Noch "</string>
+    <string name="sms_free_right">" SMS übrig."</string>
 </resources>

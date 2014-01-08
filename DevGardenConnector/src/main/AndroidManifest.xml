@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.ph1b.dgard"
-    android:versionCode="1705"
-    android:versionName="1.7.5">
+    android:versionCode="1"
+    android:versionName="1.0.0">
 
     <uses-sdk
-        android:minSdkVersion="5"
+        android:minSdkVersion="8"
         android:targetSdkVersion="19" />
     <supports-screens
         android:anyDensity="true"
@@ -18,6 +18,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- WAKE_LOCK needed to make sure, sms are send even if user sends device to sleep. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"

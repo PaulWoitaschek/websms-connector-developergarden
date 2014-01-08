@@ -23,6 +23,7 @@
         android:title="@string/password" />
 
     <CheckBoxPreference
+        android:dependency="enable_dgarden"
         android:defaultValue="false"
         android:key="use_custom_sender"
         android:summary="@string/custom_sender_use_hint"
