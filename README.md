@@ -1,3 +1,4 @@
+# Jetzt auch bei [Google Play](https://play.google.com/store/apps/details?id=de.ph1b.dgard)
 # How to use this connector
 1. Bei Developergarden [anmelden](https://www.developergarden.com)
 2. GlobalSMS API [aktivieren](https://www.developergarden.com/de/mein-konto/api-verwaltung/)
