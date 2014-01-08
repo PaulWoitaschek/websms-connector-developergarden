@@ -118,7 +118,7 @@ public class DevCon extends Connector {
         request.setType(OutboundSMSType.TEXT);
 
         if (p.getBoolean(Preferences.PREFS_CUSTOM_ENABLED, false)) {
-            if (getSenderNumber(context).length() < 1 || getSenderNumber(context).length() > 12) {
+            if (getSenderNumber(context).length() == 0) {
                 throw new WebSMSException(context.getString(R.string.error_custom_sender));
             }
             request.setSenderAddress("tel:" + getSenderNumber(context));
@@ -150,10 +150,10 @@ public class DevCon extends Connector {
     @Override
     protected final void doSend(final Context context, final Intent intent)
             throws IOException {
-        TelekomOAuth2Auth auth = this.login(context);
         if (getText(intent).length() > 129) {
             throw new WebSMSException(context.getString(R.string.message_too_long));
         }
+        TelekomOAuth2Auth auth = this.login(context);
         this.sendMessage(context, intent, auth);
     }
 
