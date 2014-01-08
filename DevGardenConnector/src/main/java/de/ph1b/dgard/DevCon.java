@@ -154,9 +154,6 @@ public class DevCon extends Connector {
     @Override
     protected final void doSend(final Context context, final Intent intent)
             throws IOException {
-        if (getText(intent).length() > 129) {
-            throw new WebSMSException(context.getString(R.string.message_too_long));
-        }
         TelekomOAuth2Auth auth = this.login(context);
         if (getIntBalance(auth) == 0) {
             throw new WebSMSException(context.getString(R.string.sms_free_no));
