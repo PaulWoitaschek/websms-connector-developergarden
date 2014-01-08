@@ -20,4 +20,5 @@
     <string name="error_custom_sender">Enter a valid custom number.</string>
     <string name="sms_free_left"></string>
     <string name="sms_free_right">" free SMS."</string>
+    <string name="sms_free_no">No more free SMS left.</string>
 </resources>

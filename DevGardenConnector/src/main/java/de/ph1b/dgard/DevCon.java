@@ -141,9 +141,13 @@ public class DevCon extends Connector {
             throws IOException {
         TelekomOAuth2Auth auth = login(context);
         ConnectorSpec c = getSpec(context);
+        c.setBalance(context.getString(R.string.sms_free_left) + String.valueOf(getIntBalance(auth)) + context.getString(R.string.sms_free_right));
+    }
+
+    protected int getIntBalance(final TelekomOAuth2Auth auth) throws IOException {
         QuotaClient client = new QuotaClient(auth, ServiceEnvironment.SANDBOX);
         GetQuotaInformationResponse quotaResponse = client.getQuotaInformation("GlobalSmsSandbox");
-        c.setBalance(context.getString(R.string.sms_free_left) + String.valueOf(quotaResponse.getMaxQuota() - quotaResponse.getQuotaLevel()) + context.getString(R.string.sms_free_right));
+        return ((quotaResponse.getMaxQuota() - quotaResponse.getQuotaLevel()));
     }
 
     //initiates login, then checks for free then initiates sending
@@ -154,7 +158,11 @@ public class DevCon extends Connector {
             throw new WebSMSException(context.getString(R.string.message_too_long));
         }
         TelekomOAuth2Auth auth = this.login(context);
+        if (getIntBalance(auth) == 0) {
+            throw new WebSMSException(context.getString(R.string.sms_free_no));
+        }
         this.sendMessage(context, intent, auth);
+        doUpdate(context, intent);
     }
 
 }

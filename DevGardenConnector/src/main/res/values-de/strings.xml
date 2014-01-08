@@ -16,4 +16,5 @@
     <string name="error_custom_sender">Tragen Sie eine gültige Absendernummer ein.</string>
     <string name="sms_free_left">"Noch "</string>
     <string name="sms_free_right">" SMS übrig."</string>
+    <string name="sms_free_no">Es sind keine kostenlosen SMS mehr übrig.</string>
 </resources>
