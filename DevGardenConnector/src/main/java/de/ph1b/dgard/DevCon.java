@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.telekom.api.common.ServiceEnvironment;
 import com.telekom.api.common.auth.TelekomOAuth2Auth;
@@ -27,6 +28,8 @@ import de.ub0r.android.websms.connector.common.WebSMSException;
 
 
 public class DevCon extends Connector {
+
+    String TAG = "DeverloperGarden";
 
     private static void outputErrorAndAbort(SmsResponse response) {
         if (response.getRequestError().getServiceException() != null) {
@@ -109,7 +112,7 @@ public class DevCon extends Connector {
     }
 
     // sending actual message using the the auth provied by login()
-    private void sendMessage(final Context context, final Intent intent, TelekomOAuth2Auth auth) {
+    private void sendMessage(final Context context, final Intent intent, TelekomOAuth2Auth auth){
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         SendSmsClient client = new SendSmsClient(auth, ServiceEnvironment.SANDBOX);
         SendSmsRequest request = new SendSmsRequest();
@@ -131,6 +134,7 @@ public class DevCon extends Connector {
             if (!response.getSuccess())
                 outputErrorAndAbort(response);
         } catch (IOException e) {
+           Log.e(TAG, "Error while sending: "+ e.getMessage());
         }
 
     }
