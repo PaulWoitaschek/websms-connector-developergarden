@@ -16,4 +16,17 @@
     <string name="sms_free_left">"Noch "</string>
     <string name="sms_free_right">" SMS übrig."</string>
     <string name="sms_free_no">Es sind keine kostenlosen SMS mehr übrig.</string>
+
+    <string name="help_text">
+        <![CDATA[<p>Diese App ist keine Standalone-App. Ihr braucht um sie nutzen zu können das Programm WebSMS. Befolgt einfach folgende Schritte:</p>
+<p>1. WebSMS <a href=\"https://play.google.com/store/apps/details?id=de.ub0r.android.websms\">herunterladen</a><br>
+2. Bei Developergarden <a href=\"https://www.developergarden.com\">anmelden</a><br>
+3. GlobalSMS API <a href=\"https://www.developergarden.com/de/mein-konto/api-verwaltung\">aktivieren</a><<br>
+4. Eine \"neue App\" <a href=\"https://www.developergarden.com/de/mein-konto/applikationsverwaltung\">erstellen</a><br>
+5. In den Einstellungen von WebSMS unter Connectoren/Einstellungen die ClientID sowie das Token hinzufügen, das ihr in den Einstellungen dieser erstellten \"App\" findet.</p>
+<p>Optional, falls ihr eure eigene Nummer als Absender verwenden wollt:</p>
+1. Euren Account <a href=\"https://www.developergarden.com/my-account/account-management\">hier</a> unter Top-up your account mit 10ct. aufladen und eure Nummer <a href=\"https://www.developergarden.com/de/mein-konto/api-verwaltung/rufnummernverwaltung/?op[action]=configApi\">freischalten</a><br>
+2. Diese Nummer (als +491...) auch unter den Einstellungen von WebSMS als eigenen Absender eintragen</p>
+        ]]>
+    </string>
 </resources>

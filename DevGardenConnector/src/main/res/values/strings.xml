@@ -20,4 +20,17 @@
     <string name="sms_free_left"></string>
     <string name="sms_free_right">" free SMS."</string>
     <string name="sms_free_no">No more free SMS left.</string>
+
+    <string name="help_text">
+        <![CDATA[<p>Diese App ist no standalone-App. To use it you need the App WebSMS. Just do this:</p>
+<p>1. <a href=\"https://play.google.com/store/apps/details?id=de.ub0r.android.websms\">Download</a> WebSMS<br>
+2. <a href=\"https://www.developergarden.com\">Sign on</a> at Developergarden<br>
+3. <a href=\"https://www.developergarden.com/de/mein-konto/api-verwaltung\">Activate</a> GlobalSMS API<br>
+4. <a href=\"https://www.developergarden.com/de/mein-konto/applikationsverwaltung\">Create</a> a new App<br>
+5. In the config menu of WebSMS at Connectors/Settings you add Client ID and Token, which you find on Developergarden at the config of your new App.</p>
+<p>Optional, if you want to use your own number as sender:</p>
+1. <a href=\"https://www.developergarden.com/my-account/account-management\">Charge</a> your account with 10ct and add your phonenumber <a href=\"https://www.developergarden.com/de/mein-konto/api-verwaltung/rufnummernverwaltung/?op[action]=configApi\">here</a><br>
+2. This number (+4917...) you add in developergarden settings.</p>
+        ]]>
+    </string>
 </resources>
