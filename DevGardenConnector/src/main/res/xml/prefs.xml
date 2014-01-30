@@ -23,6 +23,7 @@
         android:title="@string/password" />
 
     <ListPreference
+        android:dependency="enable_dgarden"
         android:title="@string/choose_env"
         android:summary="@string/choose_env_hint"
         android:key="listPref"

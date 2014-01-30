@@ -197,9 +197,8 @@ public class DevCon extends Connector {
             GetAccountBalanceResponse balanceResponse = client
                     .getAccountBalance(balanceRequest);
             for (SubAccountBalance subAccountBalance : balanceResponse
-                    .getAccounts()) {
+                    .getAccounts())
                 balance = subAccountBalance.getCredits();
-            }
         }
         return balance;
     }
@@ -213,11 +212,11 @@ public class DevCon extends Connector {
             if (getIntBalance(auth, context) == 0) {
                 throw new WebSMSException(context.getString(R.string.sms_free_no));
             }
-        } else if (getEnvironment(context).equals("2")){
+        } else if (getEnvironment(context).equals("2")) {
             if (getIntBalance(auth, context) < 710) {
                 throw new WebSMSException(context.getString(R.string.insuff));
             }
-        } else{
+        } else {
             if (getIntBalance(auth, context) < 810) {
                 throw new WebSMSException(context.getString(R.string.insuff));
             }

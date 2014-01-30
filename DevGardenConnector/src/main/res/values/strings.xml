@@ -28,7 +28,7 @@
     <string name="choose_env_hint">
         Sandbox: 10 SMS Free per day, 129 characters\n
         Basic: 7,1t per SMS, 160 characters\n
-        Premium: 8,1ct per SMS, 765 characters
+        Premium: 8,1ct per 160 characters, 765 characters
     </string>
 
     <string name="help_text">
