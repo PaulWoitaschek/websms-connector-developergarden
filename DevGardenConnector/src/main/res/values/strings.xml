@@ -20,16 +20,10 @@
     <string name="sms_free_left"> free SMS left.</string>
     <string name="sms_free_no">No more free SMS left.</string>
 
-    <string name="sandbox"></string>
-    <string name="basic"></string>
-    <string name="premium"></string>
     <string name="insuff">Not enough credits.</string>
-    <string name="choose_env">Environment</string>
-    <string name="choose_env_hint">
-        Sandbox: 10 SMS Free per day, 129 characters\n
-        Basic: 7,1t per SMS, 160 characters\n
-        Premium: 8,1ct per 160 characters, 765 characters
-    </string>
+
+    <string name="use_premium">Premium SMS</string>
+    <string name="use_premium_hint">Premium SMS, without \'sent by developergarden...\', behaves like normal SMS. Leave unchecked for 10 free SMS / day.</string>
 
     <string name="help_text">
         <![CDATA[<p>Diese App ist no standalone-App. To use it you need the App WebSMS. Just do this:</p>

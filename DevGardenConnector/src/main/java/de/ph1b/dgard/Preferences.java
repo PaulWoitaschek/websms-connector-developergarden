@@ -15,6 +15,8 @@ public final class Preferences extends PreferenceActivity {
 
     static final String PREFS_CUSTOM_ENABLED = "use_custom_sender";
 
+    static final String PREFS_PREMIUM_ENABLED = "premium";
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

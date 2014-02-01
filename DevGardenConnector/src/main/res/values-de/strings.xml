@@ -16,12 +16,7 @@
     <string name="sms_free_no">Es sind keine kostenlosen SMS mehr übrig.</string>
     <string name="insuff">Nicht genügend Geld verfügbar.</string>
 
-    <string name="choose_env">Umgebung</string>
-    <string name="choose_env_hint">
-        Sandbox: 10 SMS kostenlos pro Tag, 129 Zeichen\n
-        Basic: 7,1ct pro SMS, 160 Zeichen\n
-        Premium: 8,1ct pro 160 Zeichen, 765 Zeichen
-    </string>
+    <string name="use_premium_hint">Premium SMS, ohne \'sent by developergarden...\', funktioniert wie normale SMS. Falls NICHT gewählt, werden die 10 kostenlosen SMS pro Tag verwendet.</string>
 
     <string name="help_text">
         <![CDATA[<p>Diese App ist keine Standalone-App. Ihr braucht um sie nutzen zu können das Programm WebSMS. Befolgt einfach folgende Schritte:</p>

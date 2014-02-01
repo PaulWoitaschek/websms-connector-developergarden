@@ -33,7 +33,7 @@ import de.ub0r.android.websms.connector.common.WebSMSException;
 
 public class DevCon extends Connector {
 
-    String TAG = "DeverloperGarden";
+    String TAG = "DeveloperGarden";
 
     private static void outputErrorAndAbort(SmsResponse response) {
         if (response.getRequestError().getServiceException() != null) {
@@ -77,15 +77,12 @@ public class DevCon extends Connector {
         } else {
             connectorSpec.setStatus(ConnectorSpec.STATUS_INACTIVE);
         }
-        if (getEnvironment(context).equals("1")) {
+        if (isPremium(context)) {
+            connectorSpec.setLimitLength(765);
+            connectorSpec.setSMSLengthCalculator(new BasicSMSLengthCalculator(new int[]{765}));
+        } else {
             connectorSpec.setLimitLength(129);
             connectorSpec.setSMSLengthCalculator(new BasicSMSLengthCalculator(new int[]{129}));
-        } else if (getEnvironment(context).equals("2")) {
-            connectorSpec.setLimitLength(160);
-            connectorSpec.setSMSLengthCalculator(new BasicSMSLengthCalculator(new int[]{160}));
-        } else {
-            connectorSpec.setLimitLength(765);
-            connectorSpec.setSMSLengthCalculator(new BasicSMSLengthCalculator(new int[]{760}));
         }
         initSpec(context);
         return connectorSpec;
@@ -98,9 +95,9 @@ public class DevCon extends Connector {
     }
 
 
-    private String getEnvironment(final Context context) {
+    private boolean isPremium(final Context context) {
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
-        return p.getString("listPref", "choice");
+        return p.getBoolean(Preferences.PREFS_PREMIUM_ENABLED, false);
     }
 
     //initiates login and returns authentification
@@ -137,12 +134,10 @@ public class DevCon extends Connector {
     private void sendMessage(final Context context, final Intent intent, TelekomOAuth2Auth auth) {
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
         SendSmsClient client;
-        if (getEnvironment(context).equals("1")) {
-            client = new SendSmsClient(auth, ServiceEnvironment.SANDBOX);
-        } else if (getEnvironment(context).equals("2")) {
-            client = new SendSmsClient(auth, ServiceEnvironment.BUDGET);
-        } else {
+        if (isPremium(context)) {
             client = new SendSmsClient(auth, ServiceEnvironment.PREMIUM);
+        } else {
+            client = new SendSmsClient(auth, ServiceEnvironment.BUDGET);
         }
         SendSmsRequest request = new SendSmsRequest();
         request.setAddress(getNumbers(intent));
@@ -173,11 +168,11 @@ public class DevCon extends Connector {
         TelekomOAuth2Auth auth = login(context);
         ConnectorSpec c = getSpec(context);
         int balance = getIntBalance(auth, context);
-        if (getEnvironment(context).equals("1")) {
-            c.setBalance((String.valueOf(balance)) + (context.getString(R.string.sms_free_left)));
-        } else {
+        if (isPremium(context)) {
             NumberFormat nf = NumberFormat.getCurrencyInstance();
             c.setBalance(nf.format(balance / 1000.0));
+        } else {
+            c.setBalance((String.valueOf(balance)) + (context.getString(R.string.sms_free_left)));
         }
     }
 
@@ -185,13 +180,9 @@ public class DevCon extends Connector {
     protected int getIntBalance(final TelekomOAuth2Auth auth, final Context context) throws IOException {
         int balance = 0;
         GetQuotaInformationResponse quotaResponse;
-        if (getEnvironment(context).equals("1")) {
-            QuotaClient client = new QuotaClient(auth, ServiceEnvironment.SANDBOX);
-            quotaResponse = client.getQuotaInformation("GlobalSmsSandbox");
-            balance = (quotaResponse.getMaxQuota() - quotaResponse.getQuotaLevel());
-        } else {
-            QuotaClient client = new QuotaClient(auth,
-                    ServiceEnvironment.PRODUCTION);
+        QuotaClient client = new QuotaClient(auth,
+                ServiceEnvironment.PRODUCTION);
+        if (isPremium(context)) {
             GetAccountBalanceRequest balanceRequest = new GetAccountBalanceRequest();
             balanceRequest.setAccountId(null);
             GetAccountBalanceResponse balanceResponse = client
@@ -199,6 +190,9 @@ public class DevCon extends Connector {
             for (SubAccountBalance subAccountBalance : balanceResponse
                     .getAccounts())
                 balance = subAccountBalance.getCredits();
+        } else {
+            quotaResponse = client.getQuotaInformation("GlobalSmsSandbox");
+            balance = (quotaResponse.getMaxQuota() - quotaResponse.getQuotaLevel());
         }
         return balance;
     }
@@ -208,16 +202,12 @@ public class DevCon extends Connector {
     protected final void doSend(final Context context, final Intent intent)
             throws IOException {
         TelekomOAuth2Auth auth = this.login(context);
-        if (getEnvironment(context).equals("1")) {
+        if (!isPremium(context)) {
             if (getIntBalance(auth, context) == 0) {
                 throw new WebSMSException(context.getString(R.string.sms_free_no));
             }
-        } else if (getEnvironment(context).equals("2")) {
-            if (getIntBalance(auth, context) < 710) {
-                throw new WebSMSException(context.getString(R.string.insuff));
-            }
         } else {
-            if (getIntBalance(auth, context) < 810) {
+            if (getIntBalance(auth, context) < 1010) {
                 throw new WebSMSException(context.getString(R.string.insuff));
             }
         }

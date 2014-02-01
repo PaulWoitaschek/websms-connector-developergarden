@@ -22,14 +22,12 @@
         android:summary="@string/password_dgarden_hint"
         android:title="@string/password" />
 
-    <ListPreference
+    <CheckBoxPreference
         android:dependency="enable_dgarden"
-        android:title="@string/choose_env"
-        android:summary="@string/choose_env_hint"
-        android:key="listPref"
-        android:entries="@array/names"
-        android:entryValues="@array/choice"
-        android:defaultValue="1"
+        android:defaultValue="false"
+        android:key="premium"
+        android:title="@string/use_premium"
+        android:summary="@string/use_premium_hint"
         />
 
 
