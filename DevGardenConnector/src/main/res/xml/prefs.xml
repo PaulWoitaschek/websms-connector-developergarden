@@ -27,9 +27,7 @@
         android:defaultValue="false"
         android:key="premium"
         android:title="@string/use_premium"
-        android:summary="@string/use_premium_hint"
-        />
-
+        android:summary="@string/use_premium_hint" />
 
     <CheckBoxPreference
         android:dependency="enable_dgarden"

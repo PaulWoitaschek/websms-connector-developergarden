@@ -137,7 +137,7 @@ public class DevCon extends Connector {
         if (isPremium(context)) {
             client = new SendSmsClient(auth, ServiceEnvironment.PREMIUM);
         } else {
-            client = new SendSmsClient(auth, ServiceEnvironment.BUDGET);
+            client = new SendSmsClient(auth, ServiceEnvironment.SANDBOX);
         }
         SendSmsRequest request = new SendSmsRequest();
         request.setAddress(getNumbers(intent));
@@ -211,7 +211,7 @@ public class DevCon extends Connector {
                 throw new WebSMSException(context.getString(R.string.insuff));
             }
         }
-        this.sendMessage(context, intent, auth);
+        sendMessage(context, intent, auth);
         doUpdate(context, intent);
     }
 }
