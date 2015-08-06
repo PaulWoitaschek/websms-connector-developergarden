@@ -1,3 +1,6 @@
+# ATTENTION
+This project is no longer maintained as the telecom shut down the whole portal this all relied on.
+
 # How to use this connector
 1. WebSMS [herunterladen](https://play.google.com/store/apps/details?id=de.ub0r.android.websms)
 2. Den Connector [herunterladen](https://play.google.com/store/apps/details?id=de.ph1b.dgard)
